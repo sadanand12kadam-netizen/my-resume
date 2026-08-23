@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sadanand Kadam — Senior Product Design Engineer</title>
+<meta name="description" content="Resume of Sadanand Kadam, Senior Product Design Engineer specializing in B31.3 pressure equipment, GD&T, and CAD automation." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F5F3EC;
+    --paper-line:#DAD4C4;
+    --card:#FFFFFF;
+    --ink:#16233B;
+    --ink-soft:#57647A;
+    --blue:#1F4E79;
+    --blue-soft:#3F6E9E;
+    --rust:#C1591D;
+    --rust-soft:#E9C7AE;
+    --radius:2px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background-color:var(--paper);
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 27px, var(--paper-line) 28px),
+      repeating-linear-gradient(90deg, transparent, transparent 27px, var(--paper-line) 28px);
+    background-size:28px 28px;
+    color:var(--ink);
+    font-family:"IBM Plex Sans", sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .mono{font-family:"IBM Plex Mono", monospace;}
+  h1,h2,h3{font-family:"Space Grotesk", sans-serif; margin:0;}
+  a{color:var(--blue); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+    outline:2px solid var(--rust); outline-offset:2px;
+  }
+
+  .wrap{max-width:1080px; margin:0 auto; padding:0 24px;}
+
+  /* ---------- Title block header ---------- */
+  header.titleblock{padding:40px 0 0;}
+  .tb-card{
+    background:var(--card);
+    border:1.5px solid var(--ink);
+    box-shadow:5px 5px 0 var(--blue);
+  }
+  .tb-top{
+    display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-end;
+    gap:20px; padding:28px 30px 20px;
+    border-bottom:1.5px solid var(--ink);
+  }
+  .tb-name{font-size:clamp(32px,5vw,48px); font-weight:700; letter-spacing:0.5px; line-height:1.05;}
+  .tb-role{
+    margin-top:8px; font-size:15px; letter-spacing:2.5px; text-transform:uppercase;
+    color:var(--rust); font-weight:600;
+  }
+  .tb-contact{
+    display:flex; flex-direction:column; gap:6px; font-size:13.5px; color:var(--ink-soft); text-align:right;
+  }
+  .tb-contact a{color:var(--ink-soft);}
+  .tb-contact span{display:inline-flex; align-items:center; gap:7px; justify-content:flex-end;}
+  .tb-contact svg{flex:none;}
+
+  .tb-grid{
+    display:grid; grid-template-columns:repeat(4,1fr);
+  }
+  .tb-cell{
+    padding:12px 16px; border-right:1px solid var(--paper-line);
+  }
+  .tb-cell:last-child{border-right:none;}
+  .tb-cell .k{
+    font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:1.5px;
+    color:var(--ink-soft); text-transform:uppercase;
+  }
+  .tb-cell .v{
+    font-family:"IBM Plex Mono",monospace; font-size:14px; font-weight:600; margin-top:4px;
+  }
+
+  /* ---------- Section dimension-line header ---------- */
+  .dim-head{
+    display:flex; align-items:center; gap:14px;
+    margin:64px 0 24px;
+  }
+  .dim-head::before, .dim-head::after{
+    content:""; flex:1; height:1px; background:var(--ink-soft); position:relative;
+  }
+  .dim-head::before{
+    background-image:linear-gradient(var(--ink-soft),var(--ink-soft)); background-size:1px 8px; background-repeat:no-repeat; background-position:right center;
+  }
+  .dim-head h2{
+    font-size:13px; letter-spacing:3px; text-transform:uppercase; white-space:nowrap;
+    color:var(--blue); font-weight:700;
+  }
+  .dim-head .tick{
+    width:1px; height:9px; background:var(--ink-soft);
+  }
+
+  main{padding-bottom:80px;}
+
+  .layout{
+    display:grid; grid-template-columns:1fr 320px; gap:48px; align-items:start;
+  }
+
+  section.reveal{opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease;}
+  section.reveal.in{opacity:1; transform:none;}
+
+  /* summary */
+  .summary p{font-size:16.5px; color:var(--ink); max-width:66ch;}
+
+  /* experience timeline */
+  .timeline{position:relative; padding-left:28px;}
+  .timeline::before{
+    content:""; position:absolute; left:6px; top:6px; bottom:6px; width:2px; background:var(--blue-soft);
+  }
+  .role{position:relative; margin-bottom:44px;}
+  .role:last-child{margin-bottom:0;}
+  .role::before{
+    content:""; position:absolute; left:-28px; top:6px; width:11px; height:11px; border-radius:50%;
+    background:var(--paper); border:2.5px solid var(--rust);
+  }
+  .role-head{display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px 20px; align-items:baseline;}
+  .role-title{font-family:"Space Grotesk",sans-serif; font-size:20px; font-weight:600;}
+  .role-org{color:var(--rust); font-weight:600; font-size:14.5px; margin-top:2px;}
+  .role-meta{font-family:"IBM Plex Mono",monospace; font-size:12.5px; color:var(--ink-soft); text-align:right; white-space:nowrap;}
+  .role-sub{font-size:13.5px; color:var(--ink-soft); font-style:italic; margin-top:2px;}
+  .role ul{margin:14px 0 0; padding-left:0; list-style:none;}
+  .role li{
+    position:relative; padding-left:20px; margin-bottom:9px; font-size:14.8px; color:var(--ink);
+  }
+  .role li::before{
+    content:"▸"; position:absolute; left:0; color:var(--blue-soft); font-size:12px; top:3px;
+  }
+
+  /* sidebar */
+  .side-block{margin-bottom:40px;}
+  .side-title{
+    font-family:"IBM Plex Mono",monospace; font-size:11.5px; letter-spacing:2px; text-transform:uppercase;
+    color:var(--blue); font-weight:600; margin-bottom:14px; padding-bottom:8px; border-bottom:1px solid var(--ink);
+  }
+
+  /* feature control frame chips */
+  .fcf-list{display:flex; flex-direction:column; gap:8px;}
+  .fcf{
+    display:flex; align-items:stretch; border:1.3px solid var(--ink); background:var(--card);
+    font-size:13px; transition:box-shadow .2s ease, transform .2s ease;
+  }
+  .fcf:hover{box-shadow:3px 3px 0 var(--rust); transform:translate(-1px,-1px);}
+  .fcf .datum{
+    font-family:"IBM Plex Mono",monospace; font-weight:700; font-size:13px;
+    display:flex; align-items:center; justify-content:center;
+    width:30px; border-right:1.3px solid var(--ink); color:var(--card); background:var(--blue);
+    flex:none;
+  }
+  .fcf .label{padding:7px 10px; color:var(--ink); line-height:1.35;}
+
+  .tag-row{display:flex; flex-wrap:wrap; gap:8px;}
+  .tag{
+    font-family:"IBM Plex Mono",monospace; font-size:12px; padding:5px 10px;
+    border:1px solid var(--ink-soft); color:var(--ink-soft);
+  }
+
+  .strength-item{display:flex; gap:12px; margin-bottom:16px; align-items:flex-start;}
+  .strength-item:last-child{margin-bottom:0;}
+  .strength-icon{
+    width:28px; height:28px; flex:none; border:1.3px solid var(--ink); display:flex; align-items:center; justify-content:center; color:var(--blue); background:var(--card);
+  }
+  .strength-title{font-weight:600; font-size:14px;}
+  .strength-sub{font-size:12.5px; color:var(--ink-soft); margin-top:2px;}
+
+  .edu-item{margin-bottom:18px;}
+  .edu-item:last-child{margin-bottom:0;}
+  .edu-degree{font-weight:600; font-size:14.5px;}
+  .edu-school{color:var(--rust); font-size:13px; font-weight:500;}
+  .edu-meta{display:flex; justify-content:space-between; font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--ink-soft); margin-top:4px;}
+
+  .lang-item{display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; font-size:13.5px;}
+  .dots{display:flex; gap:3px;}
+  .dot{width:6px; height:6px; border-radius:50%; background:var(--paper-line);}
+  .dot.on{background:var(--rust);}
+
+  .ref-item{margin-bottom:16px; font-size:13px;}
+  .ref-item:last-child{margin-bottom:0;}
+  .ref-name{font-weight:600; font-size:14px;}
+  .ref-role{color:var(--ink-soft); font-size:12.5px;}
+
+  /* feedback / comments */
+  .feedback-box{
+    border:1.3px solid var(--ink); background:var(--card); padding:24px;
+  }
+  .feedback-box p.hint{font-size:13px; color:var(--ink-soft); margin:0 0 18px;}
+  .feedback-form{display:grid; gap:12px; grid-template-columns:1fr 1fr;}
+  .feedback-form textarea{grid-column:1 / -1;}
+  .feedback-form input, .feedback-form textarea{
+    font-family:"IBM Plex Sans",sans-serif; font-size:14px; padding:10px 12px;
+    border:1px solid var(--ink-soft); background:var(--paper); color:var(--ink); resize:vertical;
+  }
+  .feedback-form textarea{min-height:80px;}
+  .feedback-form button{
+    grid-column:1 / -1; justify-self:start;
+    font-family:"IBM Plex Mono",monospace; font-size:13px; letter-spacing:1px; text-transform:uppercase;
+    background:var(--blue); color:#fff; border:none; padding:11px 22px; cursor:pointer;
+    transition:background .2s ease;
+  }
+  .feedback-form button:hover{background:var(--ink);}
+  .comment-list{margin-top:24px; display:flex; flex-direction:column; gap:14px;}
+  .comment{
+    border-left:3px solid var(--rust); padding:6px 0 6px 14px;
+  }
+  .comment .who{font-weight:600; font-size:13.5px;}
+  .comment .when{font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--ink-soft); margin-left:8px;}
+  .comment .msg{font-size:13.5px; margin-top:4px; color:var(--ink);}
+  .comment-empty{font-size:13px; color:var(--ink-soft); font-style:italic;}
+
+  footer{
+    border-top:1.5px solid var(--ink); padding:24px 0 40px; margin-top:20px;
+    font-family:"IBM Plex Mono",monospace; font-size:11.5px; color:var(--ink-soft);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+  }
+
+  @media (max-width:860px){
+    .layout{grid-template-columns:1fr;}
+    .tb-grid{grid-template-columns:repeat(2,1fr);}
+    .tb-cell:nth-child(2n){border-right:none;}
+    .tb-contact{text-align:left;}
+    .tb-contact span{justify-content:flex-start;}
+    .feedback-form{grid-template-columns:1fr;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    section.reveal{opacity:1; transform:none; transition:none;}
+    .fcf, .feedback-form button{transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<header class="titleblock">
+  <div class="wrap">
+    <div class="tb-card">
+      <div class="tb-top">
+        <div>
+          <h1 class="tb-name">SADANAND&nbsp;KADAM</h1>
+          <div class="tb-role">Senior Product Design Engineer</div>
+        </div>
+        <div class="tb-contact mono">
+          <span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:+919545227631">+91 9545227631</a>
+          </span>
+          <span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" stroke="none"/><path d="M22 6 12 13 2 6"/><path d="M2 6h20v12H2z"/></svg>
+            <a href="mailto:sadanand12kadam@gmail.com">sadanand12kadam@gmail.com</a>
+          </span>
+          <span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Pune, Maharashtra, India
+          </span>
+        </div>
+      </div>
+      <div class="tb-grid">
+        <div class="tb-cell"><div class="k">Drawn by</div><div class="v">S. KADAM</div></div>
+        <div class="tb-cell"><div class="k">Scale</div><div class="v">1 : 1</div></div>
+        <div class="tb-cell"><div class="k">Units</div><div class="v">10+ YRS EXP</div></div>
+        <div class="tb-cell"><div class="k">Rev.</div><div class="v">2026</div></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="layout">
+    <div class="col-main">
+
+      <section class="reveal summary" id="summary">
+        <div class="dim-head"><div class="tick"></div><h2>Summary</h2><div class="tick"></div></div>
+        <p>Profound experience of 10+ years in mechanical product design and development across oil &amp; gas pressure equipment and injection molding machines (SPM). Strong background in forging and casting design to B31.3, sheet metal design, and automated drawing concepts, with reverse engineering grounded in GD&amp;T and tolerance stack-up analysis. Comfortable leading cross-functional teams to hit global project and program milestones, with a consistent focus on cost, time, quality, and customer satisfaction.</p>
+      </section>
+
+      <section class="reveal" id="experience">
+        <div class="dim-head"><div class="tick"></div><h2>Experience</h2><div class="tick"></div></div>
+        <div class="timeline">
+
+          <div class="role">
+            <div class="role-head">
+              <div>
+                <div class="role-title">Senior Engineer II — Product Development</div>
+                <div class="role-org">Emerson Innovation Center, Pune</div>
+                <div class="role-sub">Ultrasonic Flow Meter — Micromotion</div>
+              </div>
+              <div class="role-meta">11 / 2019 — ONGOING<br>PUNE</div>
+            </div>
+            <ul>
+              <li>Automated customer drawings with parametric design in NX.</li>
+              <li>Ran B31.3 calculations for meters to ANSI/DIN pressure ratings, setting minimum wall thickness for forged and cast bodies via Mathcad.</li>
+              <li>Built 3D models, assemblies, and detailed drawings in NX and Solidworks.</li>
+              <li>Designed weld bevels for body and flange per ASME B14.5 &amp; 14.47.</li>
+              <li>Owned drawing quality checks and markup corrections as top priority.</li>
+              <li>Generated BOMs and engineering change notes (ECNs), releasing them to the functional department.</li>
+              <li>Ran final form-fit-function review before releasing drawings and BOMs.</li>
+              <li>Prepared supporting documents — technical data sheets, design specifications.</li>
+              <li>Automated and customized CAD workflows: macros and scripts for NX and Solidworks in Python and Visual Basic.</li>
+              <li>Tracked project timelines and prepared project plans and documentation.</li>
+              <li>Designed sheet metal shroud &amp; bracket components for USM meters.</li>
+              <li>Coordinated weekly with the global design head on team updates.</li>
+              <li>Hired and trained CAD engineers to sustain ongoing projects.</li>
+              <li>Traveled to factories in Europe and the US as required.</li>
+            </ul>
+          </div>
+
+          <div class="role">
+            <div class="role-head">
+              <div>
+                <div class="role-title">Design Engineer — Design (R&amp;D)</div>
+                <div class="role-org">Milacron (India) Pvt. Ltd.</div>
+                <div class="role-sub">Injection Molding Machine</div>
+              </div>
+              <div class="role-meta">07 / 2015 — 11 / 2019<br>AHMEDABAD</div>
+            </div>
+            <ul>
+              <li>Designed and developed a new CE-compliant machine for the Maxima series on a global platform.</li>
+              <li>Standardized the production machine through improved logic and design changes.</li>
+              <li>Developed a new machine platform structure achieving CE compliance and a 35% weight reduction alongside cost savings.</li>
+              <li>Managed change control: created and maintained change requests (CR) and change notices (CN) in the PLM system.</li>
+              <li>Coordinated with the USA team to resolve day-to-day technical issues and meet project milestones.</li>
+              <li>Created manufacturing drawings and applied GD&amp;T based on application requirements.</li>
+              <li>Handled design, modeling, and drawing preparation for fabrication.</li>
+              <li>Maintained all project data in Windchill, from inquiry through released manufacturing drawings.</li>
+            </ul>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="reveal" id="feedback">
+        <div class="dim-head"><div class="tick"></div><h2>Feedback</h2><div class="tick"></div></div>
+        <div class="feedback-box">
+          <p class="hint">Leave a note — question, referral, or feedback on this page. This is a live demo box for this sample (comments reset on reload); connect it to Giscus or a form service to make it persistent, as covered in the build guide.</p>
+          <form class="feedback-form" id="feedbackForm">
+            <input type="text" id="fbName" placeholder="Your name" required />
+            <input type="email" id="fbEmail" placeholder="Email (optional)" />
+            <textarea id="fbMsg" placeholder="Your message" required></textarea>
+            <button type="submit">Post feedback</button>
+          </form>
+          <div class="comment-list" id="commentList">
+            <div class="comment-empty" id="commentEmpty">No feedback yet — be the first to leave a note.</div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <aside class="col-side">
+
+      <div class="side-block reveal" id="expertise">
+        <div class="side-title">Industry Expertise</div>
+        <div class="fcf-list">
+          <div class="fcf"><div class="datum">A</div><div class="label">B31.3 pressure design</div></div>
+          <div class="fcf"><div class="datum">B</div><div class="label">B14.5, B14.47 flange design</div></div>
+          <div class="fcf"><div class="datum">C</div><div class="label">NX &amp; Solidworks CAD</div></div>
+          <div class="fcf"><div class="datum">D</div><div class="label">Forging, casting &amp; fabrication</div></div>
+          <div class="fcf"><div class="datum">E</div><div class="label">GD&amp;T</div></div>
+          <div class="fcf"><div class="datum">F</div><div class="label">CAD automation</div></div>
+          <div class="fcf"><div class="datum">G</div><div class="label">Injection molding machines</div></div>
+          <div class="fcf"><div class="datum">H</div><div class="label">Fabricated structure design</div></div>
+          <div class="fcf"><div class="datum">J</div><div class="label">Sheet metal design</div></div>
+          <div class="fcf"><div class="datum">K</div><div class="label">Python application scripting</div></div>
+          <div class="fcf"><div class="datum">L</div><div class="label">GitHub &amp; Gen AI</div></div>
+        </div>
+      </div>
+
+      <div class="side-block reveal" id="strengths">
+        <div class="side-title">Strengths</div>
+        <div class="strength-item">
+          <div class="strength-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </div>
+          <div><div class="strength-title">Design software</div><div class="strength-sub">NX, Solidworks, Creo, Mathcad, AutoCAD</div></div>
+        </div>
+        <div class="strength-item">
+          <div class="strength-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-6.219-8.56"/><path d="M21 3v6h-6"/></svg>
+          </div>
+          <div><div class="strength-title">Product lifecycle management</div><div class="strength-sub">Teamcenter, Windchill, Oracle &amp; Enovia</div></div>
+        </div>
+        <div class="strength-item">
+          <div class="strength-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <div><div class="strength-title">Statistical software</div><div class="strength-sub">MS Office, SharePoint</div></div>
+        </div>
+        <div class="strength-item">
+          <div class="strength-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+          </div>
+          <div><div class="strength-title">Analytical approach</div><div class="strength-sub">Python, VBA &amp; C++</div></div>
+        </div>
+      </div>
+
+      <div class="side-block reveal" id="education">
+        <div class="side-title">Education</div>
+        <div class="edu-item">
+          <div class="edu-degree">BE — Mechanical Engineering</div>
+          <div class="edu-school">Pune University</div>
+          <div class="edu-meta"><span>08/2012 – 07/2015</span><span>72.41%</span></div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-degree">Diploma in Mechanical Engineering</div>
+          <div class="edu-school">Government Polytechnic, Kolhapur</div>
+          <div class="edu-meta"><span>08/2009 – 07/2012</span><span>85.34%</span></div>
+        </div>
+      </div>
+
+      <div class="side-block reveal" id="achievements">
+        <div class="side-title">Achievements</div>
+        <div class="tag-row">
+          <div class="tag">Distinction — BE, DME</div>
+          <div class="tag">ACD development — Gas USM</div>
+        </div>
+      </div>
+
+      <div class="side-block reveal" id="languages">
+        <div class="side-title">Languages</div>
+        <div class="lang-item"><span>English</span><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div></div></div>
+        <div class="lang-item"><span>Hindi</span><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div></div></div>
+        <div class="lang-item"><span>Marathi (native)</span><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div></div></div>
+      </div>
+
+      <div class="side-block reveal" id="references">
+        <div class="side-title">References</div>
+        <div class="ref-item">
+          <div class="ref-name">Sarang Cholekar</div>
+          <div class="ref-role">Senior Project Engineer Design, Emerson Innovation Center</div>
+          <a href="mailto:sarang.cholekar@emerson.com" class="mono">sarang.cholekar@emerson.com</a>
+        </div>
+        <div class="ref-item">
+          <div class="ref-name">Prakash Bumtalia</div>
+          <div class="ref-role">Assistant Manager Design, Milacron India Pvt. Ltd.</div>
+          <a href="mailto:Prakash_Bumtalia@milacron.com" class="mono">Prakash_Bumtalia@milacron.com</a>
+        </div>
+      </div>
+
+    </aside>
+  </div>
+</main>
+
+<footer class="wrap">
+  <span>SADANAND KADAM — RESUME.HTML</span>
+  <span>SHEET 1 OF 1 · REV 2026</span>
+</footer>
+
+<script>
+  // Scroll reveal
+  const items = document.querySelectorAll('.reveal');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) {
+    items.forEach(el => el.classList.add('in'));
+  } else if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    items.forEach(el => io.observe(el));
+  } else {
+    items.forEach(el => el.classList.add('in'));
+  }
+
+  // In-memory feedback demo (no backend / no storage — resets on reload)
+  const comments = [];
+  const form = document.getElementById('feedbackForm');
+  const list = document.getElementById('commentList');
+  const empty = document.getElementById('commentEmpty');
+
+  function renderComments() {
+    list.querySelectorAll('.comment').forEach(n => n.remove());
+    if (comments.length === 0) {
+      empty.style.display = 'block';
+      return;
+    }
+    empty.style.display = 'none';
+    comments.forEach(c => {
+      const div = document.createElement('div');
+      div.className = 'comment';
+      const who = document.createElement('div');
+      who.innerHTML = '<span class="who"></span><span class="when"></span>';
+      who.querySelector('.who').textContent = c.name;
+      who.querySelector('.when').textContent = c.when;
+      const msg = document.createElement('div');
+      msg.className = 'msg';
+      msg.textContent = c.msg;
+      div.appendChild(who);
+      div.appendChild(msg);
+      list.appendChild(div);
+    });
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('fbName').value.trim();
+    const msg = document.getElementById('fbMsg').value.trim();
+    if (!name || !msg) return;
+    comments.unshift({ name, msg, when: new Date().toLocaleString() });
+    renderComments();
+    form.reset();
+  });
+
+  renderComments();
+</script>
+
+</body>
+</html>
