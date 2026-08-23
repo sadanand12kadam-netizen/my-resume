@@ -193,33 +193,18 @@
   .ref-name{font-weight:600; font-size:14px;}
   .ref-role{color:var(--ink-soft); font-size:12.5px;}
 
-  /* feedback / comments */
+  /* feedback button */
   .feedback-box{
     border:1.3px solid var(--ink); background:var(--card); padding:24px;
+    text-align:center;
   }
   .feedback-box p.hint{font-size:13px; color:var(--ink-soft); margin:0 0 18px;}
-  .feedback-form{display:grid; gap:12px; grid-template-columns:1fr 1fr;}
-  .feedback-form textarea{grid-column:1 / -1;}
-  .feedback-form input, .feedback-form textarea{
-    font-family:"IBM Plex Sans",sans-serif; font-size:14px; padding:10px 12px;
-    border:1px solid var(--ink-soft); background:var(--paper); color:var(--ink); resize:vertical;
-  }
-  .feedback-form textarea{min-height:80px;}
-  .feedback-form button{
-    grid-column:1 / -1; justify-self:start;
+  .feedback-btn{
     font-family:"IBM Plex Mono",monospace; font-size:13px; letter-spacing:1px; text-transform:uppercase;
     background:var(--blue); color:#fff; border:none; padding:11px 22px; cursor:pointer;
-    transition:background .2s ease;
+    transition:background .2s ease, box-shadow .2s ease, transform .2s ease;
   }
-  .feedback-form button:hover{background:var(--ink);}
-  .comment-list{margin-top:24px; display:flex; flex-direction:column; gap:14px;}
-  .comment{
-    border-left:3px solid var(--rust); padding:6px 0 6px 14px;
-  }
-  .comment .who{font-weight:600; font-size:13.5px;}
-  .comment .when{font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--ink-soft); margin-left:8px;}
-  .comment .msg{font-size:13.5px; margin-top:4px; color:var(--ink);}
-  .comment-empty{font-size:13px; color:var(--ink-soft); font-style:italic;}
+  .feedback-btn:hover{background:var(--ink); box-shadow:3px 3px 0 var(--rust); transform:translate(-1px,-1px);}
 
   footer{
     border-top:1.5px solid var(--ink); padding:24px 0 40px; margin-top:20px;
@@ -233,13 +218,12 @@
     .tb-cell:nth-child(2n){border-right:none;}
     .tb-contact{text-align:left;}
     .tb-contact span{justify-content:flex-start;}
-    .feedback-form{grid-template-columns:1fr;}
   }
 
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto;}
     section.reveal{opacity:1; transform:none; transition:none;}
-    .fcf, .feedback-form button{transition:none;}
+    .feedback-btn{transition:none;}
   }
 </style>
 </head>
@@ -255,7 +239,7 @@
         </div>
         <div class="tb-contact mono">
           <span>
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.63 2 2 0 0 1 2-2.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7 2 2 0 0 1 1.72 2z"/></svg>
             <a href="tel:+919545227631">+91 9545227631</a>
           </span>
           <span>
@@ -284,7 +268,7 @@
 
       <section class="reveal summary" id="summary">
         <div class="dim-head"><div class="tick"></div><h2>Summary</h2><div class="tick"></div></div>
-        <p>Profound experience of 10+ years in mechanical product design and development across oil &amp; gas pressure equipment and injection molding machines (SPM). Strong background in forging and casting design to B31.3, sheet metal design, and automated drawing concepts, with reverse engineering grounded in GD&amp;T and tolerance stack-up analysis. Comfortable leading cross-functional teams to hit global project and program milestones, with a consistent focus on cost, time, quality, and customer satisfaction.</p>
+        <p>Profound experience of 10+ years in mechanical product design and development across oil &amp; gas pressure equipment and injection molding machines (SPM). Strong background in forging and casting metallurgy, B31.3 pressure rating calculations, GD&amp;T, fabrication, and CAD automation using Python. Proven expertise in NX and Solidworks with advanced parametric design. Track record of delivering engineering excellence, design innovation, and process improvements resulting in cost savings and enhanced product quality.</p>
       </section>
 
       <section class="reveal" id="experience">
@@ -345,16 +329,10 @@
       <section class="reveal" id="feedback">
         <div class="dim-head"><div class="tick"></div><h2>Feedback</h2><div class="tick"></div></div>
         <div class="feedback-box">
-          <p class="hint">Leave a note — question, referral, or feedback on this page. This is a live demo box for this sample (comments reset on reload); connect it to Giscus or a form service to make it persistent, as covered in the build guide.</p>
-          <form class="feedback-form" id="feedbackForm">
-            <input type="text" id="fbName" placeholder="Your name" required />
-            <input type="email" id="fbEmail" placeholder="Email (optional)" />
-            <textarea id="fbMsg" placeholder="Your message" required></textarea>
-            <button type="submit">Post feedback</button>
-          </form>
-          <div class="comment-list" id="commentList">
-            <div class="comment-empty" id="commentEmpty">No feedback yet — be the first to leave a note.</div>
-          </div>
+          <p class="hint">Questions or feedback? Send me an email directly.</p>
+          <a href="mailto:sadanand12kadam@gmail.com?subject=Feedback on resume">
+            <button class="feedback-btn">Send Feedback via Email</button>
+          </a>
         </div>
       </section>
 
@@ -383,7 +361,7 @@
         <div class="side-title">Strengths</div>
         <div class="strength-item">
           <div class="strength-icon">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 0 2.83-2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33m-2.97-2.97a2.5 2.5 0 1 1 3.54 3.54L9.41 20.86a4 4 0 0 1-1.35.27H7v-1.17a4 4 0 0 1 .27-1.35l12.07-12.07z"/></svg>
           </div>
           <div><div class="strength-title">Design software</div><div class="strength-sub">NX, Solidworks, Creo, Mathcad, AutoCAD</div></div>
         </div>
@@ -473,47 +451,6 @@
   } else {
     items.forEach(el => el.classList.add('in'));
   }
-
-  // In-memory feedback demo (no backend / no storage — resets on reload)
-  const comments = [];
-  const form = document.getElementById('feedbackForm');
-  const list = document.getElementById('commentList');
-  const empty = document.getElementById('commentEmpty');
-
-  function renderComments() {
-    list.querySelectorAll('.comment').forEach(n => n.remove());
-    if (comments.length === 0) {
-      empty.style.display = 'block';
-      return;
-    }
-    empty.style.display = 'none';
-    comments.forEach(c => {
-      const div = document.createElement('div');
-      div.className = 'comment';
-      const who = document.createElement('div');
-      who.innerHTML = '<span class="who"></span><span class="when"></span>';
-      who.querySelector('.who').textContent = c.name;
-      who.querySelector('.when').textContent = c.when;
-      const msg = document.createElement('div');
-      msg.className = 'msg';
-      msg.textContent = c.msg;
-      div.appendChild(who);
-      div.appendChild(msg);
-      list.appendChild(div);
-    });
-  }
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const name = document.getElementById('fbName').value.trim();
-    const msg = document.getElementById('fbMsg').value.trim();
-    if (!name || !msg) return;
-    comments.unshift({ name, msg, when: new Date().toLocaleString() });
-    renderComments();
-    form.reset();
-  });
-
-  renderComments();
 </script>
 
 </body>
