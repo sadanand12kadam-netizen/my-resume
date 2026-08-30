@@ -152,7 +152,7 @@
   .fcf-list{display:flex; flex-direction:column; gap:8px;}
   .fcf{
     display:flex; align-items:stretch; border:1.3px solid var(--ink); background:var(--card);
-    font-size:13px; transition:box-shadow .2s ease, transform .2s ease;
+    font-size:13px; transition:box-shadow .2s ease, transform .2s ease; cursor:pointer; position:relative;
   }
   .fcf:hover{box-shadow:3px 3px 0 var(--rust); transform:translate(-1px,-1px);} 
   .fcf .datum{
@@ -161,7 +161,13 @@
     width:30px; border-right:1.3px solid var(--ink); color:var(--card); background:var(--blue);
     flex:none;
   }
-  .fcf .label{padding:7px 10px; color:var(--ink); line-height:1.35;}
+  .fcf .label{padding:7px 10px; color:var(--ink); line-height:1.35; flex:1;}
+  .fcf .tooltip{
+    position:absolute; bottom:100%; left:0; right:0; background:var(--ink); color:var(--card); padding:8px 10px; 
+    font-size:11px; line-height:1.4; border:1px solid var(--ink); white-space:normal; display:none; z-index:10;
+    margin-bottom:8px; border-radius:2px;
+  }
+  .fcf:hover .tooltip{display:block;}
 
   .tag-row{display:flex; flex-wrap:wrap; gap:8px;}
   .tag{
@@ -239,15 +245,15 @@
         </div>
         <div class="tb-contact mono">
           <span>
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.[...]
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-[...]
             <a href="tel:+919545227631">+91 9545227631</a>
           </span>
           <span>
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" stroke="none"/><path d="M22 6 12 13 2 6"/><path d="M2 6h20v12"/><[...]
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" stroke="none"/><path d="M22 6 12 13 2 6"/><path d="M2 6h20v1[...]
             <a href="mailto:sadanand12kadam@gmail.com">sadanand12kadam@gmail.com</a>
           </span>
           <span>
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>[...]
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r=[...]
             Pune, Maharashtra, India
           </span>
         </div>
@@ -268,7 +274,7 @@
 
       <section class="reveal summary" id="summary">
         <div class="dim-head"><div class="tick"></div><h2>Summary</h2><div class="tick"></div></div>
-        <p>Seasoned mechanical product design engineer with 12 years of experience in product design and development, specializing in oil &amp; gas pressure equipment and injection molding machines. P[...]
+        <p>Seasoned mechanical product design engineer with 12 years of experience in product design and development, specializing in oil &amp; gas pressure equipment and injection molding machin[...]
       </section>
 
       <section class="reveal" id="experience">
@@ -302,7 +308,7 @@
                 <div class="role-org">Emerson Innovation Center, Pune</div>
                 <div class="role-sub">Ultrasonic Flow Meter — Micromotion</div>
               </div>
-              <div class="role-meta">11 / 2019 — ONGOING<br>PUNE</div>
+              <div class="role-meta">11 / 2019 — 05 / 2026<br>PUNE</div>
             </div>
             <ul>
               <li>Automated customer drawings with parametric design in NX, improving efficiency and reducing manual effort.</li>
@@ -363,17 +369,66 @@
       <div class="side-block reveal" id="expertise">
         <div class="side-title">Industry Expertise</div>
         <div class="fcf-list">
-          <div class="fcf"><div class="datum">A</div><div class="label">B31.3 pressure design</div></div>
-          <div class="fcf"><div class="datum">B</div><div class="label">B16.5, B16.47 flange design</div></div>
-          <div class="fcf"><div class="datum">C</div><div class="label">NX &amp; SOLIDWORKS CAD</div></div>
-          <div class="fcf"><div class="datum">D</div><div class="label">Forging, casting &amp; fabrication</div></div>
-          <div class="fcf"><div class="datum">E</div><div class="label">GD&amp;T</div></div>
-          <div class="fcf"><div class="datum">F</div><div class="label">CAD automation</div></div>
-          <div class="fcf"><div class="datum">G</div><div class="label">Injection molding machines</div></div>
-          <div class="fcf"><div class="datum">H</div><div class="label">Fabricated structure design</div></div>
-          <div class="fcf"><div class="datum">J</div><div class="label">Sheet metal design</div></div>
-          <div class="fcf"><div class="datum">K</div><div class="label">Python application scripting</div></div>
-          <div class="fcf"><div class="datum">L</div><div class="label">GitHub &amp; Gen AI</div></div>
+          <div class="fcf">
+            <div class="datum">A</div>
+            <div class="label">B31.3 pressure design</div>
+            <div class="tooltip">ASME B31.3 piping code for pressure components. Expertise in calculating pressure ratings, minimum wall thickness, and design thickness for forged and cast bodies in oil &amp; gas applications.</div>
+          </div>
+          <div class="fcf">
+            <div class="datum">B</div>
+            <div class="label">B16.5, B16.47 flange design</div>
+            <div class="tooltip">ASME B16.5 &amp; B16.47 flange standards for raised face and other flange types. Experience in flange design, weld bevel configuration, and pressure rating calculations for various applications.</div>
+          </div>
+          <div class="fcf">
+            <div class="datum">C</div>
+            <div class="label">NX &amp; SOLIDWORKS CAD</div>
+            <div class="tooltip">Advanced proficiency in NX and SOLIDWORKS for 3D modeling, assembly creation, detailed engineering drawings, and parametric design with automated workflows.</div>
+          </div>
+          <div class="fcf">
+            <div class="datum">D</div>
+            <div class="label">Forging, casting &amp; fabrication</div>
+            <div class="tooltip">Deep understanding of forging processes, casting design, and fabrication techniques. Experience in designing components for various manufacturing methods with consideration for tolerances and material properties.</div>
+          </div>
+          <div class="fcf">
+            <div class="datum">E</div>
+            <div class="label">GD&amp;T</div>
+            <div class="tooltip">Geometric Dimensioning and Tolerancing expertise per ASME Y14.5. Proficiency in defining and applying GD&amp;T symbols based on functional requirements and manufacturing capabilities.</div>
+          </div>
+          <div class="fcf">
+            <div class="datum">F</div>
+            <div class="label">CAD automation</div>
+            <div class="tooltip">Proficient in developing Python scripts, Visual Basic macros, and automation tools for NX and SOLIDWORKS to streamline drawing generation, reduce manual effort, and improve consistency across projects.</div>
+          </div>
+          <div class="fcf">
+            <div class="datum">G</div>
+            <div class="label">Injection molding machines</div>
+            <div class="tooltip">Expertise in design and development of injection molding machines including structure design, component optimization, and compliance with CE standards. Experience with machine platform development and standardization.</div>
+          </div>
+          <div class="fcf">
+            <div class="datum">H</div>
+            <div class="label">Fabricated structure design</div>
+            <div class="tooltip">Design of welded and fabricated structures with focus on CE compliance, weight optimization, and cost reduction. Experience in structural analysis and design modifications for improved performance.</div>
+          </div>
+          <div class="fcf">
+            <div class="datum">J</div>
+            <div class="label">Sheet metal design</div>
+            <div class="tooltip">Proficiency in designing sheet metal components including shrouds, brackets, and covers. Experience with unfold calculations, bend allowances, and manufacturing process considerations.</div>
+          </div>
+          <div class="fcf">
+            <div class="datum">K</div>
+            <div class="label">API 682 &amp; 610 standards</div>
+            <div class="tooltip">Knowledge of API 682 (Centrifugal Pumps for Petroleum, Chemical, and Gas Service Industries) and API 610 (Centrifugal Pumps for Petroleum, Chemical, and Gas Applications) standards for mechanical seal and pump design in industrial environments.</div>
+          </div>
+          <div class="fcf">
+            <div class="datum">L</div>
+            <div class="label">Python application scripting</div>
+            <div class="tooltip">Advanced Python programming for CAD integration, data processing, and automation. Experience developing desktop applications for mechanical requirement validation and design tool automation.</div>
+          </div>
+          <div class="fcf">
+            <div class="datum">M</div>
+            <div class="label">GitHub &amp; Gen AI</div>
+            <div class="tooltip">Proficiency in version control systems and collaboration using GitHub. Experience leveraging generative AI tools for code development, automation, and problem-solving in engineering workflows.</div>
+          </div>
         </div>
       </div>
 
@@ -381,9 +436,9 @@
         <div class="side-title">Strengths</div>
         <div class="strength-item">
           <div class="strength-icon">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 [...]
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2[...]
           </div>
-          <div><div class="strength-title">Design software</div><div class="strength-sub">NX, SOLIDWORKS, Creo, Solid Edge, Mathcad, AutoCAD</div></div>
+          <div><div class="strength-title">Design software</div><div class="strength-sub">NX, SOLIDWORKS, Solid Edge, Creo, Mathcad, AutoCAD</div></div>
         </div>
         <div class="strength-item">
           <div class="strength-icon">
